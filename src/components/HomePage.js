@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
+import { adminFalse } from './App'
 import Dashboard from './Dashboard'
 
 const HomePage = () => {
@@ -9,6 +10,9 @@ const HomePage = () => {
 
     const { currentUser } = useAuth()
     console.log(currentUser)
+
+    adminFalse()
+
     if (currentUser)
         return (<Dashboard />)
 
@@ -20,7 +24,7 @@ const HomePage = () => {
 
             <div className="w-100" style={{ maxWidth: "400px" }} >
             <div className="w-100 text-center mt-2" 
-                style={{backgroundColor: "lightgreen"}}>
+                style={{backgroundColor: "lightblue"}}>
                 Attendance Management System
             </div>
             <Button className="w-100" 

@@ -8,7 +8,12 @@ import Help from './Help'
 import Attendance from './Attendance'
 import Register from './Register'
 import Admin from './Admin'
+import AdminLogin from './AdminLogin'
 
+let admin = false;
+const adminTrue = () => {admin = true}
+const adminFalse = () => {admin = false}
+const isAdmin = () => admin
 
 const App = () => {
   return (
@@ -22,6 +27,7 @@ const App = () => {
               <Route path = '/attendance' element = {<Attendance />} />
               <Route path = '/register' element = {<Register />} />
               <Route path = '/admin' element = {<Admin />} />
+              <Route path = '/admin-login' element = {<AdminLogin />} />
               {/* <Route path="/forgot-password" component={ForgotPassword} /> */}
             </Routes>
         </AuthProvider>
@@ -29,4 +35,5 @@ const App = () => {
   )
 }
 
+export { isAdmin, adminTrue, adminFalse}
 export default App

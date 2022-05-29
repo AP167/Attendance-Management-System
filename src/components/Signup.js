@@ -3,6 +3,7 @@ import { useRef, useState } from 'react'
 import { Container, Form, Button, Card, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import { adminFalse } from './App'
 
 const Signup = () => {
     let navigate = useNavigate()
@@ -18,6 +19,8 @@ const Signup = () => {
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
+    adminFalse()
+
     function handleSignUp(e) {
       e.preventDefault()
   
@@ -31,7 +34,7 @@ const Signup = () => {
 
         signup(emailRef.current.value, passwordRef.current.value)
         .then(() => {
-          displayname(nameRef.current.value)
+          displayname(nameRef.current.value, passwordAdminRef.current.value)
           .then(() => {
             navigate('/')
           }).catch((error) => {
@@ -60,7 +63,6 @@ const Signup = () => {
         > 
 
         <div className="w-100" style={{ maxWidth: "400px" }} >
-          <div style={{backgroundColor: "lightgreen"}}>Sign Up</div>
           <Card>
             <Card.Body>
               <h2 className="text-center mb-4">Sign Up</h2>

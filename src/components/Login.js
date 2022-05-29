@@ -3,6 +3,7 @@ import { useRef, useState } from 'react'
 import { Container, Form, Button, Card, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import { adminFalse } from './App'
 
 const Login = () => {
     let navigate = useNavigate()
@@ -15,6 +16,8 @@ const Login = () => {
 
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+
+    adminFalse()
 
     async function handleLogIn(e) {
       e.preventDefault()
@@ -38,7 +41,6 @@ const Login = () => {
         > 
 
         <div className="w-100" style={{ maxWidth: "400px" }} >
-          <div style={{backgroundColor: "lightblue"}}>Log In</div>
           <Card>
             <Card.Body>
               <h2 className="text-center mb-4">Log In</h2>

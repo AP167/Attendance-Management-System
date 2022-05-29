@@ -25,10 +25,11 @@ const AuthProvider = ({ children }) => {
     return signOut(auth)
   }
 
-  function displayname(dn) {
+  function displayname(dn, ap) {
     console.log(dn + " inside displayname")
     return updateProfile(auth.currentUser, {
-      displayName: dn
+      displayName: dn,
+      photoURL: ap
       })
   }
 

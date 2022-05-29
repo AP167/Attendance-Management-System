@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext'
 import Webcam from 'react-webcam'
 import * as faceapi from 'face-api.js'
 import './CanvasPos.css'
+import { adminFalse } from './App'
 
 const videoConstraints = {
     width: 720,
@@ -40,6 +41,8 @@ const Attendance = () => {
     const [image,setImage]=useState('');
     const webcamRef = React.useRef(null);
 
+    adminFalse()
+
     
     const capture = React.useCallback(
         () => {
@@ -58,7 +61,7 @@ const Attendance = () => {
 
     let canvas = null
     const getCanvas = () => {
-        console.log(image)
+        // console.log(image)
         Promise.all([
             faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
             faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
@@ -137,7 +140,7 @@ const Attendance = () => {
                                     <Button  
                                     onClick={(e) => {
                                         e.preventDefault()
-                                        console.log("canvas  " + canvas)
+                                        // console.log("canvas  " + canvas)
                                         if (canvas) {
                                             const items = document.querySelectorAll("canvas");
                                             for (let item of items) {

@@ -58,7 +58,7 @@ const Dashboard = () => {
             </Card.Body>
           </Card>
 
-          <Card className='dash-card' onClick={() => {navigate('/admin')}}>
+          <Card className='dash-card' onClick={() => {navigate('/admin-login')}}>
             <Card.Body className='dash-btn' style={{width: "100%"}}>
               <img src="./images/admin.svg" alt="" width="90%" />
               <p style={{marginTop: "2vw"}}>Admin</p>
